@@ -1,0 +1,16 @@
+{
+  "name": "stomp-client",
+  "version": "1.0.0",
+  "description": "ui based stomp client",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development"
+  },
+  "author": "Rishabh Handay",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {}
+}
