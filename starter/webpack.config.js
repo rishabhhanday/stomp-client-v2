@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './src/js/stomp.js',
+    entry: './src/js/controller/appController.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'js/stomp-bundle.js'
