@@ -16,13 +16,13 @@ const connectCallback = connected => {
     subscriptionsArray.forEach(sub => {
         stompClient.subscribe(sub, getStompMessage);
     });
-}
+};
 
 const errorCallBack = error => {
     view.stayConnected(false);
 
     view.showFrames(view.frameType.danger, error);
-}
+};
 
 export const connect = (stompConnect, stompSubscribe) => {
     try {
