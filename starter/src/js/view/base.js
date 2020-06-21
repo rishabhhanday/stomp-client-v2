@@ -1,5 +1,7 @@
 export const elements = {
     connectBtn: document.getElementById("connect"),
+    disconnectBtn: document.getElementById("disconnect"),
+    sendBtn: document.getElementById("send-message"),
     connectUrl: document.getElementById("url"),
     connectHeaderPlus: document.getElementById("add-connect-header"),
     messageHeaderPlus: document.getElementById("add-message-header"),
@@ -18,25 +20,9 @@ export const elements = {
             value: document.getElementById(`${type}-header-value-${id}`)
         }
     },
-    subscriptionById: id => document.getElementById(`subscription-${id}`)
-};
-
-export const elementStrings = {
-    loader: 'loader'
-};
-
-export const renderLoader = parent => {
-    const loader = `
-        <div class="${elementStrings.loader}">
-            <svg>
-                <use href="img/icons.svg#icon-cw"></use>
-            </svg>
-        </div>
-    `;
-    parent.insertAdjacentHTML('afterbegin', loader);
-};
-
-export const clearLoader = () => {
-    const loader = document.querySelector(`.${elementStrings.loader}`);
-    if (loader) loader.parentElement.removeChild(loader);
+    subscriptionById: id => document.getElementById(`subscription-${id}`),
+    destination: document.getElementById('destination'),
+    message: document.getElementById('messages'),
+    payload: document.getElementById('payload'),
+    payloadDestination: document.getElementById('payload-destination')
 };

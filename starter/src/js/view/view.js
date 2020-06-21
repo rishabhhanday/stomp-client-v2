@@ -15,11 +15,11 @@ const addHeader = (type, headerId) => {
 };
 
 const getHeaders = type => {
-    const headers = new Map();
+    const headers = {};
 
     for (let id = 0; id < (type === headerType.connect ? connectHeaderId : messageHeaderId); id++) {
         if (elements.headerKeyValueById(type, id).key.value.trim() !== "")
-            headers.set(elements.headerKeyValueById(type, id).key.value.trim(), elements.headerKeyValueById(type, id).value.value.trim());
+            headers[elements.headerKeyValueById(type, id).key.value.trim()] = elements.headerKeyValueById(type, id).value.value.trim();
     }
 
     return headers;
@@ -47,4 +47,39 @@ export const getSubscriptions = () => {
     }
 
     return subscriptions;
+};
+
+
+export const stayConnected = (status) => {
+    elements.connectBtn.disabled = status;
+    elements.sendBtn.disabled = !status;
+    elements.disconnectBtn.disabled = !status;
+
+    if (status === true) {
+        elements.frames.innerHTML = "";
+        elements.message.innerHTML = "";
+        elements.destination.innerHTML = "";
+    }
+};
+
+export const frameType = {
+    success: 'success',
+    danger: 'danger'
+};
+
+export const showFrames = (frameType, frame) => {
+    elements.frames.insertAdjacentHTML('beforeend', `<tr class="${frameType}"><td>${frame}</td></tr>`);
+};
+
+export const showMessageAndDestination = (message, destination) => {
+    elements.message.insertAdjacentHTML('beforeend', `<tr class='success'><td>${message}</td></tr>`);
+    elements.destination.insertAdjacentHTML('beforeend', `<tr class='success'><td>${destination}</td></tr>`);
+};
+
+export const getPaylaodDestination = () => {
+    return elements.payloadDestination.value.trim();
+};
+
+export const getPayload = () => {
+    return elements.payload.value.trim();
 };
