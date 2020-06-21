@@ -4,11 +4,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: './src/js/controller/appController.js',
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'js/stomp-bundle.js'
+        path: path.resolve(__dirname, '../'),
+        filename: 'starter/dist/js/stomp-bundle.js'
     },
     devServer: {
-        contentBase: "./dist"
+        contentBase: "."
     },
     plugins: [
         new HtmlWebpackPlugin({
