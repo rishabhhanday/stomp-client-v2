@@ -3,6 +3,7 @@ import * as view from "../view/view";
 var Stomp = require('stompjs');
 let stompClient;
 let subscriptionsArray;
+let subscribeMap = new Map();
 
 const getStompMessage = message => {
     view.showFrames(view.frameType.success, message);
@@ -14,7 +15,9 @@ const connectCallback = connected => {
     view.showFrames(view.frameType.success, connected);
 
     subscriptionsArray.forEach(sub => {
-        stompClient.subscribe(sub, getStompMessage);
+        const subscriptionUniqueId = stompClient.subscribe(sub, getStompMessage);
+
+        subscribeMap.set(sub, subscriptionUniqueId);
     });
 };
 
@@ -42,6 +45,10 @@ export const sendMessage = (stompSend) => {
     stompClient.send(stompSend.destination, stompSend.headers, stompSend.message);
 };
 
-export const disconnect = ()=>{
+export const disconnect = () => {
     stompClient.disconnect();
 };
+
+export const unsubscribe = sub => {
+    subscribeMap.get(sub).unsubscribe();
+}

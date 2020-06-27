@@ -32,3 +32,5 @@ elements.disconnectBtn.addEventListener('click', () => {
 
     stompService.disconnect();
 });
+
+window.unsubscribe = stompService.unsubscribe;
