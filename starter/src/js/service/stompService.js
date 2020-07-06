@@ -46,7 +46,9 @@ export const sendMessage = (stompSend) => {
 };
 
 export const disconnect = () => {
-    stompClient.disconnect();
+    stompClient.disconnect((() => {
+        view.showFrames(view.frameType.success, 'DISCONNECTED');
+    }));
 };
 
 export const unsubscribe = sub => {
