@@ -10,9 +10,11 @@ let subscribeMap = new Map();
 const getStompMessage = message => {
     view.showFrames(view.frameType.success, message);
 
-    view.showMessageAndDestination(beautify(JSON.parse(message.body), null, 2, 100), message.headers.destination);
+    const messageBodyAsObj = JSON.parse(message.body);
 
-    console.log(beautify(JSON.parse(message.body), null, 2, 100));
+    view.showMessageAndDestination(beautify(messageBodyAsObj, null, 2, 100), message.headers.destination);
+
+    console.log(beautify(messageBodyAsObj, null, 2, 100));
 };
 
 const connectCallback = connected => {
