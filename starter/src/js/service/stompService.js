@@ -1,6 +1,8 @@
 import * as view from "../view/view";
 
 var Stomp = require('stompjs');
+var beautify = require("json-beautify");
+
 let stompClient;
 let subscriptionsArray;
 let subscribeMap = new Map();
@@ -8,7 +10,9 @@ let subscribeMap = new Map();
 const getStompMessage = message => {
     view.showFrames(view.frameType.success, message);
 
-    view.showMessageAndDestination(JSON.stringify(JSON.parse(message.body), undefined, 4), message.headers.destination);
+    view.showMessageAndDestination(beautify(JSON.parse(message.body), null, 2, 100), message.headers.destination);
+
+    console.log(beautify(JSON.parse(message.body), null, 2, 100));
 };
 
 const connectCallback = connected => {
