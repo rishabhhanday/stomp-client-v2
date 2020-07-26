@@ -57,8 +57,8 @@ export const stayConnected = (status) => {
 
     if (status === true) {
         elements.frames.innerHTML = "";
-        elements.message.innerHTML = "";
-        elements.destination.innerHTML = "";
+        //elements.message.value = "";
+       // elements.destination.innerHTML = "";
     }
 };
 
@@ -71,9 +71,15 @@ export const showFrames = (frameType, frame) => {
     elements.frames.insertAdjacentHTML('beforeend', `<tr class="${frameType}"><td>${frame}</td></tr>`);
 };
 
-export const showMessageAndDestination = (message, destination) => {
+/* export const showMessageAndDestination = (message, destination) => {
     elements.message.insertAdjacentHTML('beforeend', `<tr class='success'><td>${message}</td></tr>`);
     elements.destination.insertAdjacentHTML('beforeend', `<tr class='success'><td>${destination}</td></tr>`);
+}; */
+
+export const showMessageWithDestination = message => {
+    elements.message.insertAdjacentHTML('beforeend', `<tr><pre>${message}</pre></tr>`);
+
+   // elements.message.value += `${message} \n\n`;
 };
 
 export const getPaylaodDestination = () => {

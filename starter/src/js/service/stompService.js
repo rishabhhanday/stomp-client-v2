@@ -7,14 +7,15 @@ let stompClient;
 let subscriptionsArray;
 let subscribeMap = new Map();
 
-const getStompMessage = message => {
-    view.showFrames(view.frameType.success, message);
+const getStompMessage = messageFrame => {
+    view.showFrames(view.frameType.success, messageFrame);
+    
+    const message = {
+        destination: messageFrame.headers.destination,
+        body: JSON.parse(messageFrame.body)
+    }
 
-    const messageBodyAsObj = JSON.parse(message.body);
-
-    view.showMessageAndDestination(beautify(messageBodyAsObj, null, 2, 100), message.headers.destination);
-
-    console.log(beautify(messageBodyAsObj, null, 2, 100));
+    view.showMessageWithDestination(beautify(message, null, 2));
 };
 
 const connectCallback = connected => {

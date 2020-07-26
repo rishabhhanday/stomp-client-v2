@@ -21,7 +21,7 @@ export const elements = {
         }
     },
     subscriptionById: id => document.getElementById(`subscription-${id}`),
-    destination: document.getElementById('destination'),
+   // destination: document.getElementById('destination'),
     message: document.getElementById('messages'),
     payload: document.getElementById('payload'),
     payloadDestination: document.getElementById('payload-destination')

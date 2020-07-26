@@ -18,7 +18,12 @@
 
         .vl {
             border-left: 1px solid gray;
-            height: 600px;
+            height: 800px;
+        }
+
+        #scrolling-div {
+            height: 300px;
+            overflow: auto;
         }
     </style>
 </head>
@@ -113,28 +118,17 @@ Javascript and reload this page!</h2></noscript>-->
                 </center>
                 <hr />
                 <div class="row">
-                    <div class="col-md-3">
-                        <table id="conversation-0" class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Subscription URL:</th>
-                                </tr>
-                            </thead>
-                            <tbody id="destination">
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="col-md-9">
-                        <table id="conversation-1" class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Incoming Messages:</th>
-                                </tr>
-                            </thead>
-                            <tbody id="messages">
-                            </tbody>
-                        </table>
-                    </div>
+                    <h5><b>Incoming Messages:</b></h5>
+                </div>
+                <div class="row" id="scrolling-div">
+                    <table id="conversation-1" class="table table-hover">
+                        <tbody id="messages">
+                        </tbody>
+                    </table>
+                    <!--  <div class="form-group">
+                        <label for="comment">Message:</label>
+                        <textarea class="form-control" rows="10" id="messages" readonly></textarea>
+                    </div> -->
                 </div>
             </div>
             <div class="col-md-3 vl">

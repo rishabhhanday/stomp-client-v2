@@ -4,9 +4,26 @@ import StompConnect from "../model/StompConnect";
 import StompSubscribe from "../model/StompSubscribe";
 import StompSend from "../model/StompSend";
 import * as stompService from "../service/stompService";
+var beautify = require("json-beautify");
 
+
+const test = () => {
+    const errorMessage = {
+        errorCode: '12001',
+        errorMessage: 'x-wp-correlation-id header is missing'
+    }
+
+    const message = {
+        destination: '/reply/v1/error',
+        body: errorMessage
+    }
+
+    view.showMessageWithDestination(beautify(message, null, 2, 100));
+};
 
 elements.connectBtn.addEventListener('click', () => {
+    // test();
+
     view.stayConnected(true);
 
     const stompConnect = new StompConnect(view.getConnectUrl(), view.getConnectHeaders());
