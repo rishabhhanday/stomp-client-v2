@@ -1,8 +1,8 @@
 import { elements } from "./base";
 
-let connectHeaderId = 0,
-    messageHeaderId = 0,
-    subId = 0;
+let connectHeaderId = 1,
+    messageHeaderId = 1,
+    subId = 1;
 
 const headerType = {
     connect: 'connect',
@@ -57,8 +57,8 @@ export const stayConnected = (status) => {
 
     if (status === true) {
         elements.frames.innerHTML = "";
-        //elements.message.value = "";
-       // elements.destination.innerHTML = "";
+        elements.message.innerHTML = "";
+        // elements.destination.innerHTML = "";
     }
 };
 
@@ -79,7 +79,7 @@ export const showFrames = (frameType, frame) => {
 export const showMessageWithDestination = message => {
     elements.message.insertAdjacentHTML('beforeend', `<tr><pre>${message}</pre></tr>`);
 
-   // elements.message.value += `${message} \n\n`;
+    // elements.message.value += `${message} \n\n`;
 };
 
 export const getPaylaodDestination = () => {
