@@ -9,13 +9,13 @@ let subscribeMap = new Map();
 
 const getStompMessage = messageFrame => {
     view.showFrames(view.frameType.success, messageFrame);
-    
+
     const message = {
         destination: messageFrame.headers.destination,
         body: JSON.parse(messageFrame.body)
     }
 
-    view.showMessageWithDestination(beautify(message, null, 2));
+    view.showMessageWithDestination(beautify(message, null, 2, 80));
 };
 
 const connectCallback = connected => {
